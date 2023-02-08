@@ -175,6 +175,7 @@ func (typeName TypeName) Singular(idFactory IdentifierFactory) TypeName {
 	return typeName.WithName(name)
 }
 
+// Singularize transforms the passed name into its singular form.
 func Singularize(name string, idFactory IdentifierFactory) string {
 	// work around bug in flect: https://github.com/Azure/azure-service-operator/issues/1454
 	for plural, single := range typeNamePluralToSingularOverrides {
