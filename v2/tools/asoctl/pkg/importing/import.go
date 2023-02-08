@@ -3,20 +3,20 @@
  * Licensed under the MIT license.
  */
 
-package export
+package importing
 
 import "github.com/spf13/cobra"
 
 // NewCommand creates a new cobra Command when invoked from the command line
 func NewCommand() (*cobra.Command, error) {
 	cmd := &cobra.Command{
-		Use:   "export",
-		Short: "exports ARM resources as YAML resource definitions",
+		Use:   "import",
+		Short: "imports ARM resources as YAML resource definitions",
 		Args:  cobra.ExactArgs(1),
 	}
 
-	exportResourceCommand := newExportResourceCommand()
-	cmd.AddCommand(exportResourceCommand)
+	importAzureResourceCommand := newImportAzureResourceCommand()
+	cmd.AddCommand(importAzureResourceCommand)
 
 	return cmd, nil
 }
