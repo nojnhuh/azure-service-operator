@@ -10,7 +10,7 @@ import (
 	"k8s.io/klog/v2"
 
 	"github.com/Azure/azure-service-operator/v2/tools/asoctl/pkg/crd"
-	"github.com/Azure/azure-service-operator/v2/tools/asoctl/pkg/export"
+	"github.com/Azure/azure-service-operator/v2/tools/asoctl/pkg/importing"
 )
 
 // Execute kicks off the command line
@@ -28,14 +28,14 @@ func Execute() {
 func newRootCommand() (*cobra.Command, error) {
 	rootCmd := &cobra.Command{
 		Use:              "asoctl",
-		Short:            "asoctl provides a cmdline interface for exporting existing resources into ASOv2 from ARM",
+		Short:            "asoctl provides a cmdline interface for working with Azure Service Operator",
 		TraverseChildren: true,
 	}
 
 	rootCmd.Flags().SortFlags = false
 
 	cmdFuncs := []func() (*cobra.Command, error){
-		export.NewCommand,
+		importing.NewCommand,
 		crd.NewCommand,
 	}
 
