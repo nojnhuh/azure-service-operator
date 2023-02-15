@@ -40,7 +40,6 @@ func newImportAzureResourceCommand() *cobra.Command {
 
 // TODO: importing azure resource logic goes here
 func importAzureResource(ctx context.Context, armID string, output *string) error {
-	klog.Info("importing azure resource")
 	importer, err := importing.NewImporter(cloud.AzurePublic)
 	if err != nil {
 		klog.Errorf("failed to create importer")
