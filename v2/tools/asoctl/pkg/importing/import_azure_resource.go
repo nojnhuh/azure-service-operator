@@ -7,13 +7,15 @@ package importing
 
 import (
 	"context"
+	"os"
+
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
-	"github.com/Azure/azure-service-operator/v2/tools/asoctl/internal/importing"
 	"github.com/devigned/pub/pkg/xcobra"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"k8s.io/klog/v2"
-	"os"
+
+	"github.com/Azure/azure-service-operator/v2/tools/asoctl/internal/importing"
 )
 
 func newImportAzureResourceCommand() *cobra.Command {
